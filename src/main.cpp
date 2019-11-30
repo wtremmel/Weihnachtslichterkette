@@ -29,8 +29,8 @@ Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
 
 void fillWhite() {
   for (int i=0; i < strip.numPixels(); i++) {
-    int r = random(255);
-    strip.setPixelColor(i,r,r,r);
+    int r = random(64);
+    strip.setPixelColor(i,r,r/2,1+r/10);
     strip.show();
   }
 }
@@ -39,11 +39,11 @@ void twinkle(int i) {
   //strip.setPixelColor(i,0);
   //strip.show();
   //delay(500);
-  strip.setPixelColor(i,255,255,255);
+  strip.setPixelColor(i,255,128,25);
   strip.show();
   delay(100);
-  int r = random(100);
-  strip.setPixelColor(i,r,r,r);
+  int r = random(64);
+  strip.setPixelColor(i,r,r/2,1+r/10);
   strip.show();
 }
 
@@ -64,5 +64,5 @@ void setup() {
 
 void loop() {
   twinkle(random(strip.numPixels()));
-  // delay(1000);
+  delay(200);
 }
